@@ -18,7 +18,7 @@ import dayjs from 'dayjs'
 //选区下拉
 const luckysheetDropCell = {
     iconHtml: '<div id="luckysheet-dropCell-icon" style="position: absolute;padding: 2px;background-color: #f1f1f1;z-index: 990;cursor: pointer;">'+
-                '<div id="icon_dropCell"></div>'+
+                '<div id="icon_dropCell">▶️</div>'+
               '</div>',
     typeListHtml: '<div id="luckysheet-dropCell-typeList" class="luckysheet-cols-menu luckysheet-rightgclick-menu luckysheet-mousedown-cancel">'+
                     '<div class="luckysheet-cols-menuitem luckysheet-mousedown-cancel" data-type="0">'+
@@ -292,7 +292,8 @@ const luckysheetDropCell = {
             col_pre = colLocationByIndex(col_index)[0];
 
         $("#luckysheet-dropCell-icon").remove();
-        $("#luckysheet-cell-main").append(_this.iconHtml);
+        // 暂时隐藏按钮
+        // $("#luckysheet-cell-main").append(_this.iconHtml);
         $("#luckysheet-dropCell-icon").css({"left": col, "top": row});
 
         //点击icon
@@ -388,6 +389,7 @@ const luckysheetDropCell = {
         let str_c = copyRange["column"][0], end_c = copyRange["column"][1];
 
         let hasNumber = false,
+            isPureStr = false
             hasExtendNumber = false,
             hasDate = false,
             hasChn = false,
@@ -406,6 +408,9 @@ const luckysheetDropCell = {
                         }
                         else if(cell["ct"] != null && cell["ct"].t == "d"){
                             hasDate = true;
+                        }
+                        else if (cell["ct"] != null && cell["ct"].t == "s") {
+                            isPureStr = true
                         }
                         else if(_this.isExtendNumber(cell["m"])[0]){
                             hasExtendNumber = true;
@@ -427,7 +432,7 @@ const luckysheetDropCell = {
             }
         }
 
-        return [hasNumber, hasExtendNumber, hasDate, hasChn, hasChnWeek1, hasChnWeek2, hasChnWeek3];
+        return [hasNumber, hasExtendNumber, hasDate, hasChn, hasChnWeek1, hasChnWeek2, hasChnWeek3, isPureStr];
     },
     update: function(){
         let _this = this;

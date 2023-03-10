@@ -36,7 +36,7 @@ import {checkProtectionAuthorityNormal} from './protection';
 import Store from '../store';
 import locale from '../locale/locale';
 import numeral from 'numeral';
-import { luckysheetlodingHTML } from '../controllers/constant';
+import { luckysheetlodingHTML } from './constant';
 
 const pivotTable = {
     pivotDatas: null,

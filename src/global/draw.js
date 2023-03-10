@@ -262,8 +262,6 @@ function luckysheetDrawgridColumnTitle(scrollWidth, drawWidth, offsetLeft) {
     luckysheetTableContent.rect(offsetLeft-1, 0, drawWidth, Store.columnHeaderHeight -1);
     luckysheetTableContent.clip();
 
-    // console.log(offsetLeft, 0, drawWidth, Store.columnHeaderHeight -1);
-
     let end_c, start_c;
     let bodrder05 = 0.5;//Default 0.5
     let preEndC;
@@ -2170,17 +2168,6 @@ function cellTextRender(textInfo, ctx, option){
     if(values==null){
         return;
     }
-    // console.log(textInfo, pos_x, pos_y, values[0].width, values[0].left, ctx);
-
-    // for(let i=0;i<values.length;i++){
-    //     let word = values[i];
-    //     ctx.font = word.style;
-    //     ctx.fillText(word.content, (pos_x + word.left)/Store.zoomRatio, (pos_y+word.top)/Store.zoomRatio);
-    // }
-
-    // ctx.fillStyle = "rgba(255,255,0,0.2)";
-    // ctx.fillRect((pos_x + values[0].left)/Store.zoomRatio, (pos_y+values[0].top-values[0].asc)/Store.zoomRatio, textInfo.textWidthAll, textInfo.textHeightAll)
-
     if(textInfo.rotate!=0 && textInfo.type!="verticalWrap"){
         ctx.save();
         ctx.translate((pos_x+textInfo.textLeftAll)/Store.zoomRatio, (pos_y+textInfo.textTopAll)/Store.zoomRatio);
@@ -2188,7 +2175,6 @@ function cellTextRender(textInfo, ctx, option){
         ctx.translate(-(textInfo.textLeftAll+pos_x)/Store.zoomRatio, -(pos_y+textInfo.textTopAll)/Store.zoomRatio);
     }
 
-    // ctx.fillStyle = "rgb(0,0,0)";
     for(let i=0;i<values.length;i++){
         let word = values[i];
         if(word.inline===true && word.style!=null){

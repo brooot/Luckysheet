@@ -192,7 +192,6 @@ function ABCatNum(a) {
         charnum = getCharNumber(str[i]);
         numout += charnum * Math.pow(26, al-i-1);
     };
-    // console.log(a, numout-1);
     if(numout==0){
         return NaN;
     }
@@ -201,44 +200,6 @@ function ABCatNum(a) {
 
 //列下标  数字转字母
 function chatatABC(n) {
-    // let wordlen = columeHeader_word.length;
-
-    // if (index < wordlen) {
-    //     return columeHeader_word[index];
-    // }
-    // else {
-    //     let last = 0, pre = 0, ret = "";
-    //     let i = 1, n = 0;
-
-    //     while (index >= (wordlen / (wordlen - 1)) * (Math.pow(wordlen, i++) - 1)) {
-    //         n = i;
-    //     }
-
-    //     let index_ab = index - (wordlen / (wordlen - 1)) * (Math.pow(wordlen, n - 1) - 1);//970
-    //     last = index_ab + 1;
-
-    //     for (let x = n; x > 0; x--) {
-    //         let last1 = last, x1 = x;//-702=268, 3
-
-    //         if (x == 1) {
-    //             last1 = last1 % wordlen;
-
-    //             if (last1 == 0) {
-    //                 last1 = 26;
-    //             }
-
-    //             return ret + columeHeader_word[last1 - 1];
-    //         }
-
-    //         last1 = Math.ceil(last1 / Math.pow(wordlen, x - 1));
-    //         //last1 = last1 % wordlen;
-    //         ret += columeHeader_word[last1 - 1];
-
-    //         if (x > 1) {
-    //             last = last - (last1 - 1) * wordlen;
-    //         }
-    //     }
-    // }
 
     var orda = 'a'.charCodeAt(0); 
    
@@ -852,8 +813,6 @@ function defineBasicReactive(obj, key, value, callback) {
       },
       set(newValue) {
         if (value === newValue) return
-        console.log(`发现 ${key} 属性 ${value} -> ${newValue}`)
-
         setTimeout(() => {
             callback(value,newValue);
         }, 0);

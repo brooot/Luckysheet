@@ -547,7 +547,7 @@ function customSheetbarConfig() {
  * Customize the bottom count bar
  */
 function customStatisticBarConfig() {
-    if(!luckysheetConfigsetting.initStatisticBarConfig){
+    if (!luckysheetConfigsetting.initStatisticBarConfig || !luckysheetConfigsetting.showstatisticBar){
 
         luckysheetConfigsetting.initStatisticBarConfig = true;
 

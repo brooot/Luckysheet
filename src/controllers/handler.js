@@ -4149,8 +4149,7 @@ export default function luckysheetHandler() {
             luckysheetDropCell.copyRange = { "row": $.extend(true, [], last["row"]), "column": $.extend(true, [], last["column"]) };
             //applyType
             let typeItemHide = luckysheetDropCell.typeItemHide();
-
-            if (!typeItemHide[0] && !typeItemHide[1] && !typeItemHide[2] && !typeItemHide[3] && !typeItemHide[4] && !typeItemHide[5] && !typeItemHide[6]) {
+            if (!typeItemHide[0] && !typeItemHide[1] && !typeItemHide[2] && !typeItemHide[3] && !typeItemHide[4] && !typeItemHide[5] && !typeItemHide[6] || typeItemHide[7]) {
                 luckysheetDropCell.applyType = "0";
             }
             else {
@@ -4472,7 +4471,7 @@ export default function luckysheetHandler() {
         //applyType
         let typeItemHide = luckysheetDropCell.typeItemHide();
 
-        if (!typeItemHide[0] && !typeItemHide[1] && !typeItemHide[2] && !typeItemHide[3] && !typeItemHide[4] && !typeItemHide[5] && !typeItemHide[6]) {
+        if (!typeItemHide[0] && !typeItemHide[1] && !typeItemHide[2] && !typeItemHide[3] && !typeItemHide[4] && !typeItemHide[5] && !typeItemHide[6]  || typeItemHide[7]) {
             luckysheetDropCell.applyType = "0";
         }
         else {

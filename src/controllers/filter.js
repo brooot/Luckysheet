@@ -5,7 +5,7 @@ import tooltip from '../global/tooltip';
 import { rowlenByRange } from '../global/getRowlen';
 import { selectHightlightShow } from './select';
 import { luckysheetMoveEndCell } from './sheetMove';
-import { luckysheetlodingHTML } from '../controllers/constant';
+import { luckysheetlodingHTML } from './constant';
 import server from './server';
 import locale from '../locale/locale';
 import Store from '../store';
