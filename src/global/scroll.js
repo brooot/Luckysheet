@@ -1,8 +1,8 @@
 import luckysheetFreezen from '../controllers/freezen';
 import { luckysheet_searcharray } from '../controllers/sheetSearch';
-import { luckysheetrefreshgrid } from '../global/refresh';
+import { luckysheetrefreshgrid } from './refresh';
 import Store from '../store';
-import method from '../global/method'
+import method from './method'
 
 let scrollRequestAnimationFrameIni = true,scrollRequestAnimationFrame = false, scrollTimeOutCancel=null;
 

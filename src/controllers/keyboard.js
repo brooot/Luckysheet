@@ -94,7 +94,6 @@ function formulaMoveEvent(dir, ctrlKey, shiftKey, event){
         }
         else if(formula.israngeseleciton()){
             let anchor = $(window.getSelection().anchorNode);
-            // console.log(anchor.parent().next().text());
             if(anchor.parent().next().text() == null || anchor.parent().next().text() == ""){
                 let vText = $("#luckysheet-input-box #luckysheet-input-box-index").text();
                 let range = formula.getcellrange(vText);

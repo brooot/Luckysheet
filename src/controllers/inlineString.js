@@ -207,9 +207,6 @@ export function updateInlineStringFormat(cell, attr, value, $input){
 
                 $textEditor.html(cont);
 
-                // console.log(replaceSpans, cont);
-                // replaceSpans.replaceWith(cont);
-
                 let startSeletedNodeIndex, endSeletedNodeIndex;
                 if(s1==s2){
                     startSeletedNodeIndex  = startSpanIndex;

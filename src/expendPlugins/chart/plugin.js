@@ -1092,7 +1092,6 @@ function createLuckyChart(width, height, left, top) {
             c++
         ) {
             var value = getcellvalue(r, c, luckysheet.flowdata());
-            //console.log("value,r,c",value,r,c);
             if (value != null && value.toString().length > 0) {
                 shiftpositon_row = r;
                 break;

@@ -151,9 +151,6 @@ export function zoomInitial(){
         $(document).off("mousemove.zoomCursor").on("mousemove.zoomCursor",function(event){
             let moveX = event.pageX;
             let offsetX = moveX - curentX;
-            // console.log(moveX, curentX, offsetX);
-            // curentX = moveX;
-            // let left = parseFloat($("#luckysheet-zoom-cursor").css("left"));
             let pos = cursorLeft + offsetX; 
             let currentRatio = positionToRatio(pos);
 

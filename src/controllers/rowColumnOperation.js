@@ -35,7 +35,7 @@ import tooltip from '../global/tooltip';
 import editor from '../global/editor';
 import locale from '../locale/locale';
 import {getMeasureText,getCellTextInfo} from '../global/getRowlen';
-import { luckysheet_searcharray } from '../controllers/sheetSearch';
+import { luckysheet_searcharray } from './sheetSearch';
 import {isInlineStringCell} from './inlineString';
 import {checkProtectionLockedRangeList, checkProtectionAllSelected,checkProtectionAuthorityNormal  } from './protection';
 import Store from '../store';
@@ -2307,7 +2307,6 @@ function luckysheetcolsdbclick() {
                 });
 
                 let computeRowlen = 0;
-                // console.log("rowlen", textInfo);
                 if(textInfo!=null){
                     computeRowlen = textInfo.textWidthAll;
                 }
@@ -2360,7 +2359,6 @@ function luckysheetcolsdbclick() {
                     });
 
                     let computeRowlen = 0;
-                    // console.log("rowlen", textInfo);
                     if(textInfo!=null){
                         computeRowlen = textInfo.textWidthAll;
                     }

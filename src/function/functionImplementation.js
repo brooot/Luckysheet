@@ -719,7 +719,6 @@ const functionImplementation = {
             arr.push(["天蝎座", new Date(1999, 9, 23, 0, 0, 0)]);
             arr.push(["射手座", new Date(1999, 10, 22, 0, 0, 0)]);
             arr.push(["魔羯座", new Date(1999, 11, 22, 0, 0, 0)]);
-            //console.log(birthday, arr, i);
             for (var i = arr.length - 1; i >= 0; i--) {
                 if (d >= arr[i][1]) {
                     return arr[i][0];
@@ -1718,7 +1717,6 @@ const functionImplementation = {
                     var row=[],col=[];
                     var sumRangeEnd = "";
                     var realSumRange = "";
-                    //console.log("开始位置！！！",sumRangeStart,typeof(sumRangeStart));
                     row[0] = parseInt(sumRangeStart.replace(/[^0-9]/g,"")) - 1;
                     col[0] = ABCatNum(sumRangeStart.replace(/[^A-Za-z]/g,""));
 
@@ -1726,16 +1724,13 @@ const functionImplementation = {
                     row[1] = row[0] + rangeRow - 1;
                     col[1] = col[0] + rangeCol - 1;
 
-                    //console.log(row[0],col[0],row[1],col[1]);
                     //末尾位置转化为sheet格式：如 F4
                     var real_ABC = chatatABC(col[1]);
                     var real_Num = row[1] + 1;
                     sumRangeEnd = real_ABC + real_Num;
-                    //console.log("合成新的末尾位置：" + sumRangeEnd);
 
                     realSumRange = sumRangeSheet + "!" +sumRangeStart + ":" + sumRangeEnd;
                     sumRangeData = luckysheet_getcelldata(realSumRange).data;
-                    //console.log("最终的目标范围：",sumRangeData);
                 }
 
                 sumRangeData = formula.getRangeArray(sumRangeData)[0];
@@ -7052,7 +7047,6 @@ const functionImplementation = {
                     var row=[],col=[];
                     var sumRangeEnd = "";
                     var realSumRange = "";
-                    //console.log("开始位置！！！",sumRangeStart,typeof(sumRangeStart));
                     row[0] = parseInt(sumRangeStart.replace(/[^0-9]/g,"")) - 1;
                     col[0] = ABCatNum(sumRangeStart.replace(/[^A-Za-z]/g,""));
 
@@ -7060,16 +7054,13 @@ const functionImplementation = {
                     row[1] = row[0] + rangeRow - 1;
                     col[1] = col[0] + rangeCol - 1;
 
-                    //console.log(row[0],col[0],row[1],col[1]);
                     //末尾位置转化为sheet格式：如 F4
                     var real_ABC = chatatABC(col[1]);
                     var real_Num = row[1] + 1;
                     sumRangeEnd = real_ABC + real_Num;
-                    //console.log("合成新的末尾位置：" + sumRangeEnd);
 
                     realSumRange = sumRangeSheet + "!" +sumRangeStart + ":" + sumRangeEnd;
                     sumRangeData = luckysheet_getcelldata(realSumRange).data;
-                    //console.log("最终的目标范围：",sumRangeData);
                 }
 
                 sumRangeData = formula.getRangeArray(sumRangeData)[0];
@@ -27577,7 +27568,6 @@ const functionImplementation = {
             {
                 strtext ='='+strtext;
             }
-            //console.log(strtext);
             var result_this = formula.execstringformula(strtext,cell_r,cell_c,sheetindex_now);
             return result_this[1];
         }

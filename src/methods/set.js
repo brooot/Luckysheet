@@ -1,4 +1,4 @@
-import { getSheetIndex } from '../methods/get';
+import { getSheetIndex } from './get';
 import Store from '../store';
 
 function setluckysheet_select_save(v) {

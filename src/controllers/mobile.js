@@ -43,12 +43,8 @@ export default function mobileinit(){
             let scrollLeft = $("#luckysheet-scrollbar-x").scrollLeft();
             let scrollTop = $("#luckysheet-scrollbar-y").scrollTop();
 
-            // console.log("start",scrollTop, slideY,touch.pageY);
-
             scrollLeft -= slideX;
             scrollTop -= slideY;
-
-            // console.log(touch,touch.pageY, luckysheet_touchmove_startPos.y, slideY);
 
             if(scrollLeft < 0){
                 scrollLeft = 0;
@@ -220,7 +216,6 @@ export default function mobileinit(){
     $(document).on("touchstart", ".luckysheet-cs-touchhandle", function(event){
         luckysheet_touchhandle_status = true;
         luckysheet_touchmove_status = false;
-        // console.log(1111111111);
         event.stopPropagation();
     })  
 

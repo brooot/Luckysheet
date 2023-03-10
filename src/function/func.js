@@ -4,7 +4,7 @@ import tooltip from '../global/tooltip';
 import { isRealNum, valueIsError,error } from '../global/validate';
 import { getdatabyselectionD } from '../global/getdata';
 import { genarate } from '../global/format';
-import { inverse } from '../function/matrix_methods';
+import { inverse } from './matrix_methods';
 import { getSheetIndex, getluckysheetfile, getRangetxt } from '../methods/get';
 import { getObjType, ABCatNum } from '../utils/util';
 import Store from '../store';

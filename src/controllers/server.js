@@ -156,10 +156,10 @@ const server = {
             } else {
                 customImageUpdate(customImageUpdateMethodConfig.method, customImageUpdateMethodConfig.url, d)
                     .then((data) => {
-                        console.log(data);
+                        // console.log(data);
                     })
                     .catch((err) => {
-                        console.log(err);
+                        // console.log(err);
                     });
 
             }
@@ -1087,14 +1087,9 @@ const server = {
         let _this = this;
         clearTimeout(_this.requestTimeOut);
 
-        //console.log(_this.requestlast, dayjs(), (_this.requestlast!=null && _this.requestlast.add(10, 'seconds').isBefore(dayjs()) ) );
         if(!_this.requestLock && (_this.requestlast!=null && _this.requestlast.clone().add(1, 'seconds').isBefore(dayjs()) ) ){
             _this.request();
         }
-
-        // if(!_this.imageRequestLock && (_this.imageRequestLast==null || _this.imageRequestLast.clone().add(30, 'seconds').isBefore(dayjs()) ) ){
-
-        // }
 
         _this.requestTimeOut = setTimeout(function(){
             _this.submitTimeout();
@@ -1122,8 +1117,6 @@ const server = {
             //     iscommpress = true;
             // }
             _this.requestLock = true;
-            //console.log(params);
-            // console.log("request");
             if(_this.updateUrl != ""){
                 $.post(_this.updateUrl, { compress: iscommpress, gridKey: _this.gridKey, data: params }, function (data) {
 					let re = new Function("return " + data)();
@@ -1150,8 +1143,6 @@ const server = {
 
         html2canvas($("#" + container).find(".luckysheet-grid-window").get(0), {
           onrendered: function(canvas) {
-            //let imgcut = $("#luckysheet-cell-main").find(".luckysheet-grid-window");
-            //document.body.appendChild(canvas);
             let old = $(canvas).appendTo("body");
             old.hide();
             let newwidth = old.width();
@@ -1174,17 +1165,11 @@ const server = {
             old.get(0).getContext("2d").drawImage(newCanvas, 0, 0, 350, 189);
             let base64 = old.get(0).toDataURL('image/jpeg', 0.9);
 
-            //console.log(base64);
-            //console.log("压缩：", pako.gzip(base64, { to: "string" }));
-            //console.log("imageRequest");
             let curindex = luckysheet.sheetmanage.getCurSheetnoset();
             _this.imageRequestLock =true;
-            // let data1 = pako.gzip(encodeURIComponent(JSON.stringify({"t":"thumb", "img": base64, "curindex":curindex })), { to: "string" });
             let data1 = encodeURIComponent(JSON.stringify({"t":"thumb", "img": base64, "curindex":curindex }));
             old.remove();
-            //console.log("缩略图", _this.imageRequestLast,base64);
             if(_this.updateImageUrl != ""){
-                // $.post(_this.updateImageUrl, { compress: true, gridKey: _this.gridKey, data:data1  }, function (data) {
                 $.post(_this.updateImageUrl, { compress: false, gridKey: _this.gridKey, data:data1  }, function (data) {
 					let re = new Function("return " + data)();
                     if(re.status){
@@ -1280,39 +1265,21 @@ const server = {
 
             _this.localdata = data;
             func(_this.localdata);
-
-            //console.log(value);
-            // localforage.setItem(key, data).then(function () {
-            //     console.log(data);
-            //     func(data);
-            // }).catch(function (err) {
-
-            // });
         });
     },
     getlocaldata: function (func) {
         let key = this.gridKey;
-        //return store.get(key);
         func(this.localdata);
-        // localforage.getItem(key).then(function(readValue) {
-        //     func(readValue);
-        // });
     },
     clearlocaldata: function (func) {
         let key = this.gridKey;
-        //store.remove(key);
         this.localdata = [];
         func();
-        // localforage.removeItem(key, function(err,value) {
-        //     func();
-        // });
     },
     cachelocaldata: function (func) {
         let key = this.gridKey;
         let _this = this;
         let cahce_key = key + "__qkcache";
-        //store.remove(key);
-        //console.log(key, cahce_key);
 
 
         //处理localdata去重
@@ -1343,30 +1310,15 @@ const server = {
         if(updatedata==null || updatedata.length==0){
             return;
         }
-        //console.log(key, cahce_key,updatedata);
         _this.clearlocaldata(function(){
             localforage.setItem(cahce_key, updatedata).then(function () {
                 func(cahce_key, updatedata);
             });
         });
-
-        // localforage.getItem(key).then(function(readValue) {
-        //     let updatedata = readValue;
-        //     if(readValue==null || readValue.length==0){
-        //         return;
-        //     }
-        //     //console.log(key, cahce_key,updatedata);
-        //     _this.clearlocaldata(function(){
-        //         localforage.setItem(cahce_key, updatedata).then(function () {
-        //             func(cahce_key, updatedata);
-        //         });
-        //     });
-        // });
     },
     clearcachelocaldata: function(func){
         let key = this.gridKey;
         let cahce_key = key + "__qkcache";
-        //store.remove(key);
         localforage.removeItem(cahce_key, function(err,value) {
             if(func && typeof(func)=="function"){
                 func();
@@ -1385,18 +1337,10 @@ const server = {
                     data = [];
                 }
                 let newdata = updatedata.concat(data);
-                //data.unshift(updatedata);
-
                 _this.localdata = newdata;
                 if(func instanceof Function){
                     func(_this.localdata);
                 }
-
-                // localforage.setItem(key, newdata).then(function () {
-                //     func(newdata);
-                // }).catch(function (err) {
-
-                // });
             });
         });
 	},
