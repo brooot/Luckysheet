@@ -11,4 +11,4 @@ if(window.addEventListener && (navigator.userAgent.indexOf("Firefox") > 0)){
 // export default luckysheet;
 
 // use esbuild,bundle iife format
-module.exports =  luckysheet
+export default luckysheet
