@@ -1,9 +1,9 @@
-import { chart } from '../expendPlugins/chart/plugin'
-import { print } from '../expendPlugins/print/plugin'
+// import { chart } from '../expendPlugins/chart/plugin'
+// import { print } from '../expendPlugins/print/plugin'
 
 const pluginsObj = {
-    'chart':chart,
-    'print':print
+    // 'chart':chart,
+    // 'print':print
 }
 
 const isDemo = true
