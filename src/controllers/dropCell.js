@@ -389,7 +389,7 @@ const luckysheetDropCell = {
         let str_c = copyRange["column"][0], end_c = copyRange["column"][1];
 
         let hasNumber = false,
-            isPureStr = false
+            isPureStr = false,
             hasExtendNumber = false,
             hasDate = false,
             hasChn = false,
