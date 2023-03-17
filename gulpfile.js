@@ -72,7 +72,7 @@ const paths = {
     staticFonts: ['src/fonts/**'],
     staticAssets: ['src/assets/**'],
     staticImages: ['src/plugins/images/*.png'],
-    staticExpendPlugins: ['src/expendPlugins/**', '!src/expendPlugins/**/plugin.js'],
+    // staticExpendPlugins: ['src/expendPlugins/**', '!src/expendPlugins/**/plugin.js'],
     staticDemoData: ['src/demoData/*.js'],
     staticCssImages: ['src/css/**','!src/css/*.css'],
 
@@ -81,19 +81,21 @@ const paths = {
     destStaticFonts: ['dist/fonts'],
     destStaticAssets: ['dist/assets'],
     destStaticImages: ['dist/plugins/images'],
-    destStaticExpendPlugins: ['dist/expendPlugins'],
+    // destStaticExpendPlugins: ['dist/expendPlugins'],
     destStaticDemoData: ['dist/demoData'],
     destStaticCssImages: ['dist/css'],
 
     //core es module
-    core: ['src/**/*.js','!src/demoData/*.js','src/expendPlugins/**/plugin.js','!src/plugins/js/*.js'],
+    core: ['src/**/*.js','!src/demoData/*.js'
+    // ,'src/expendPlugins/**/plugin.js'
+    ,'!src/plugins/js/*.js'],
 
      //plugins src
     pluginsCss: ['src/plugins/css/*.css'],
     plugins: ['src/plugins/*.css'],
     css:['src/css/*.css','node_modules/flatpickr/dist/themes/light.css'],
     pluginsJs:[
-        'node_modules/jquery/dist/jquery.min.js',
+        // 'node_modules/jquery/dist/jquery.min.js',
         'node_modules/uuid/dist/umd/uuid.min.js',
         'src/plugins/js/clipboard.min.js',
         'src/plugins/js/spectrum.min.js',
@@ -162,7 +164,7 @@ function watcher(done) {
     watch(paths.staticFonts,{ delay: 500 }, series(copyStaticFonts, reloadBrowser));
     watch(paths.staticAssets,{ delay: 500 }, series(copyStaticAssets, reloadBrowser));
     watch(paths.staticImages,{ delay: 500 }, series(copyStaticImages, reloadBrowser));
-    watch(paths.staticExpendPlugins,{ delay: 500 }, series(copyStaticExpendPlugins, reloadBrowser));
+    // watch(paths.staticExpendPlugins,{ delay: 500 }, series(copyStaticExpendPlugins, reloadBrowser));
     watch(paths.staticDemoData,{ delay: 500 }, series(copyStaticDemoData, reloadBrowser));
     watch(paths.staticCssImages,{ delay: 500 }, series(copyStaticCssImages, reloadBrowser));
 
@@ -277,10 +279,10 @@ function copyStaticImages(){
     return src(paths.staticImages)
         .pipe(dest(paths.destStaticImages));
 }
-function copyStaticExpendPlugins(){
-    return src(paths.staticExpendPlugins)
-        .pipe(dest(paths.destStaticExpendPlugins));
-}
+// function copyStaticExpendPlugins(){
+//     return src(paths.staticExpendPlugins)
+//         .pipe(dest(paths.destStaticExpendPlugins));
+// }
 function copyStaticDemoData(){
     return src(paths.staticDemoData)
         .pipe(dest(paths.destStaticDemoData));
@@ -294,8 +296,12 @@ function copyStaticCssImages(){
         .pipe(dest(paths.destStaticCssImages));
 }
 
-const dev = series(clean, parallel(pluginsCss, plugins, css, pluginsJs, copyStaticHtml, copyStaticFonts, copyStaticAssets, copyStaticImages, copyStaticExpendPlugins, copyStaticDemoData, copyStaticCssImages, core), watcher, serve);
-const build = series(clean, parallel(pluginsCss, plugins, css, pluginsJs, copyStaticHtml, copyStaticFonts, copyStaticAssets, copyStaticImages, copyStaticExpendPlugins, copyStaticDemoData, copyStaticCssImages, core));
+const dev = series(clean, parallel(pluginsCss, plugins, css, pluginsJs, copyStaticHtml, copyStaticFonts, copyStaticAssets, copyStaticImages,
+    //  copyStaticExpendPlugins, 
+     copyStaticDemoData, copyStaticCssImages, core), watcher, serve);
+const build = series(clean, parallel(pluginsCss, plugins, css, pluginsJs, copyStaticHtml, copyStaticFonts, copyStaticAssets, copyStaticImages, 
+    // copyStaticExpendPlugins, 
+    copyStaticDemoData, copyStaticCssImages, core));
 
 exports.dev = dev;
 exports.build = build;
